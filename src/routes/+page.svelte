@@ -96,7 +96,13 @@
 	}
 </script>
 
-{#if form?.success}
+{#if !storename}
+	<div>
+		<div class="flex justify-center p-4">
+			<h1 class="text-3xl text-yellow-400">"Kein Laden ausgewählt"</h1>
+		</div>
+	</div>
+{:else if form?.success}
 	<Success {with_treatment} {day} {time} />
 {:else if form?.success == false}
 	<Failure />

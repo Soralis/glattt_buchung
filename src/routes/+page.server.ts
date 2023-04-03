@@ -99,6 +99,7 @@ async function send_email(data) {
 	const time = appointment_time.toLocaleTimeString('de-DE', { hour: 'numeric', minute: 'numeric' });
 	const mail_user = data.storename + '@glattt.com';
 	const mail_pass = JSON.parse(SECRET_MAIL_PASSWORDS)[data.storename];
+	const glattt_store = JSON.parse(data.store_info).name;
 
 	const transporter = nodemailer.createTransport({
 		host: SECRET_MAILHOST,
@@ -117,6 +118,7 @@ async function send_email(data) {
 			lastname: data.lastname,
 			day: day,
 			time: time,
+			with_treatment: data.with_treatment,
 			store_info: data.store_info
 		}
 	});
@@ -124,14 +126,14 @@ async function send_email(data) {
 	transporter.sendMail({
 		from: mail_user,
 		to: data.email,
-		subject: `Dein Termin bei glattt Bremen am ${day} um ${time} Uhr wurde gebucht!`,
+		subject: `Dein Termin bei ${glattt_store} am ${day} um ${time} Uhr wurde gebucht!`,
 		html: emailHtml
 	});
 
 	transporter.sendMail({
 		from: mail_user,
 		to: mail_user,
-		subject: `Dein Termin bei glattt Bremen am ${day} um ${time} Uhr wurde gebucht!`,
+		subject: `Termin von ${data.firstname} ${data.lastname} bei ${glattt_store} am ${day} um ${time} Uhr wurde gebucht!`,
 		html: emailHtml
 	});
 
