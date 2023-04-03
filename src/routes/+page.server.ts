@@ -14,7 +14,6 @@ import nodemailer from 'nodemailer';
 export const actions = {
 	async default({ request, fetch }) {
 		const form_data = await request.formData();
-		console.log('form data: ', form_data);
 		//create customer
 		const { clientId, err } = await create_customer(form_data);
 
@@ -101,10 +100,6 @@ async function send_email(data) {
 	const mail_user = data.storename + '@glattt.com';
 	const mail_pass = JSON.parse(SECRET_MAIL_PASSWORDS)[data.storename];
 
-	console.log('mail_user', mail_user);
-	console.log('mail_pass', mail_pass);
-
-	console.log('day', day, 'time', time);
 	const transporter = nodemailer.createTransport({
 		host: SECRET_MAILHOST,
 		port: SECRET_MAILPORT,

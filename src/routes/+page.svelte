@@ -72,7 +72,6 @@
 			$reserve_modal = false;
 		}
 	}
-	$: console.log('Stoire info: ', $store_info);
 
 	async function load_free_appointments() {
 		pending = true;
@@ -335,7 +334,6 @@
 			>
 		</div>
 		<button
-			on:click={() => console.log('click')}
 			disabled={booking}
 			class="w-full text-yellow-400 font-semibold border border-yellow-400 hover:text-white hover:bg-yellow-400 px-5 py-2.5 text-center dark:bg-orange-600 dark:hover:bg-orange-700 dark:focus:ring-orange-800"
 		>
