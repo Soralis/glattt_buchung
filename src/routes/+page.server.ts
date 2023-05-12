@@ -123,19 +123,35 @@ async function send_email(data) {
 		}
 	});
 
-	transporter.sendMail({
+	await transporter.sendMail({
 		from: mail_user,
 		to: data.email,
 		subject: `Dein Termin bei ${glattt_store} am ${day} um ${time} Uhr wurde gebucht!`,
 		html: emailHtml
-	});
+	}),
+		(err, info) => {
+			if (err) {
+				console.log('Error sending email: ', err);
+			} else {
+				console.log('Email sent envelope:', info.envelope);
+				console.log('Email sent messageId:', info.messageId);
+			}
+		};
 
-	transporter.sendMail({
+	await transporter.sendMail({
 		from: mail_user,
 		to: mail_user,
 		subject: `Termin von ${data.firstname} ${data.lastname} bei ${glattt_store} am ${day} um ${time} Uhr wurde gebucht!`,
 		html: emailHtml
-	});
+	}),
+		(err, info) => {
+			if (err) {
+				console.log('Error sending email: ', err);
+			} else {
+				console.log('Email sent envelope:', info.envelope);
+				console.log('Email sent messageId:', info.messageId);
+			}
+		};
 
 	return Promise.resolve;
 }
