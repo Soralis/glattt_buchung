@@ -91,12 +91,17 @@ async function create_customer(data) {
 async function send_email(data) {
 	const appointment_time = new Date(data.startTime);
 	const day = appointment_time.toLocaleDateString('de-DE', {
+		timeZone: 'Europe/Berlin',
 		weekday: 'long',
 		year: 'numeric',
 		month: 'long',
 		day: 'numeric'
 	});
-	const time = appointment_time.toLocaleTimeString('de-DE', { hour: 'numeric', minute: 'numeric' });
+	const time = appointment_time.toLocaleTimeString('de-DE', {
+		timeZone: 'Europe/Berlin',
+		hour: 'numeric',
+		minute: 'numeric'
+	});
 	const mail_user = data.storename + '@glattt.com';
 	const mail_pass = JSON.parse(SECRET_MAIL_PASSWORDS)[data.storename];
 	const glattt_store = JSON.parse(data.store_info).name;
@@ -128,30 +133,14 @@ async function send_email(data) {
 		to: data.email,
 		subject: `Dein Termin bei ${glattt_store} am ${day} um ${time} Uhr wurde gebucht!`,
 		html: emailHtml
-	}),
-		(err, info) => {
-			if (err) {
-				console.log('Error sending email: ', err);
-			} else {
-				console.log('Email sent envelope:', info.envelope);
-				console.log('Email sent messageId:', info.messageId);
-			}
-		};
+	});
 
 	await transporter.sendMail({
 		from: mail_user,
 		to: mail_user,
 		subject: `Termin von ${data.firstname} ${data.lastname} bei ${glattt_store} am ${day} um ${time} Uhr wurde gebucht!`,
 		html: emailHtml
-	}),
-		(err, info) => {
-			if (err) {
-				console.log('Error sending email: ', err);
-			} else {
-				console.log('Email sent envelope:', info.envelope);
-				console.log('Email sent messageId:', info.messageId);
-			}
-		};
+	});
 
 	return Promise.resolve;
 }
