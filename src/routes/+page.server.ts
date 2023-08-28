@@ -59,33 +59,33 @@ async function create_customer(data) {
 		}
 	);
 	const client = await client_response.json();
-	// if yes, return
+	// if yes, pick that client
 	if (client.page.size > 0) {
-		return { err: 'email already exists' };
+		return { clientId: client._embedded.clients[0].clientId, err: '' };
+	} else {
+		const response = await fetch(
+			'https://platform.phorest.com/third-party-api-server/api/business/QOR5AOtguWS6upmO84Dikw/client',
+			{
+				method: 'POST',
+				headers: {
+					Authorization: `Basic ${btoa(
+						`${SECRET_PHOREST_AUTH_NAME}:${SECRET_PHOREST_AUTH_PASSWORD}`
+					)}`,
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify({
+					email: data.get('email'),
+					emailReminderConsent: true,
+					firstName: data.get('firstname'),
+					lastName: data.get('lastname'),
+					mobile: data.get('phone'),
+					smsReminderConsent: true
+				})
+			}
+		);
+		const json = await response.json();
+		return { clientId: json.clientId, err: json.errorCode };
 	}
-
-	const response = await fetch(
-		'https://platform.phorest.com/third-party-api-server/api/business/QOR5AOtguWS6upmO84Dikw/client',
-		{
-			method: 'POST',
-			headers: {
-				Authorization: `Basic ${btoa(
-					`${SECRET_PHOREST_AUTH_NAME}:${SECRET_PHOREST_AUTH_PASSWORD}`
-				)}`,
-				'Content-Type': 'application/json'
-			},
-			body: JSON.stringify({
-				email: data.get('email'),
-				emailReminderConsent: true,
-				firstName: data.get('firstname'),
-				lastName: data.get('lastname'),
-				mobile: data.get('phone'),
-				smsReminderConsent: true
-			})
-		}
-	);
-	const json = await response.json();
-	return { clientId: json.clientId, err: json.errorCode };
 }
 
 async function send_email(data) {

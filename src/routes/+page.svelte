@@ -219,7 +219,8 @@
 		<!-- Warnungen bei fehlerhafter eingabe oder existentem Kunden -->
 		<div>
 			{#if form?.err == 'email already exists'}
-				<Alert color="yellow">
+				<!-- They still want them to be able to book -->
+				<!-- <Alert color="yellow">
 					<span class="ml-3 text-sm font-semibold text-red-500">
 						Diese Emailadresse wurde schon benutzt.<br />Du bist schon Kunde? Dann vereinbare bitte
 						Deinen Termin telefonisch unter:
@@ -227,7 +228,7 @@
 							><u>{$store_info.phone.number}</u></a
 						>
 					</span>
-				</Alert>
+				</Alert> -->
 			{:else if form?.err == 'NON_UNIQUE_MOBILE'}
 				<!-- Warnung Telefonnummer wird schon benutzt -->
 				<Alert color="yellow">
