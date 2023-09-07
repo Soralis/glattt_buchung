@@ -43,7 +43,6 @@
 			>
 		</p>
 		<br />
-		<p>Eine Sitzung kostet pro Körperzone 49,99 €. Meistens benötigst Du 9 Sitzungen.</p>
 		<p>
 			Die Details unserer Preise findest Du hier: <a
 				style="color:#E7B53A"
