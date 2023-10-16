@@ -59,7 +59,7 @@ async function create_customer(data) {
 		}
 	);
 	const client = await client_response.json();
-	// if yes, pick that client.
+	// if yes, pick that client
 	if (client.page.size > 0) {
 		return { clientId: client._embedded.clients[0].clientId, err: '' };
 	} else {
