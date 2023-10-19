@@ -13,8 +13,8 @@ export const GET = async ({ url }) => {
 		url.searchParams.get('storename'),
 		url.searchParams.get('with_treatment')
 	);
-	const monday = new Date(url.searchParams.get('monday'));
-	const sunday = new Date(url.searchParams.get('sunday'));
+	const monday = new Date(url.searchParams.get('monday')).setHours(0, 0, 0, 0);
+	const sunday = new Date(url.searchParams.get('sunday')).setHours(0, 0, 0, 0);
 
 	const response = await fetch(
 		`https://platform.phorest.com/third-party-api-server/api/business/${SECRET_BUSINESS_ID}/branch/${branchId}/appointments/availability`,
@@ -43,6 +43,7 @@ export const GET = async ({ url }) => {
 	);
 
 	const { data } = await response.json();
+	console.log(monday, sunday);
 	return json(data);
 };
 
