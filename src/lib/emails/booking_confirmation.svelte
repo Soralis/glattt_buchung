@@ -1,8 +1,8 @@
 <script>
-	import { Button, Hr, Html, Text } from 'svelte-email';
+	import { Html } from 'svelte-email';
 
-	export let firstname = 'Gay';
-	export let lastname = 'Coksuka';
+	export let firstname = 'Max';
+	export let lastname = 'Mustermann';
 	export let day = '01.01.2021';
 	export let time = '12:00';
 	export let with_treatment = 'true';
