@@ -5,7 +5,7 @@
 	import { store_info } from '$lib/Store';
 </script>
 
-<meta http-equiv="refresh" content="7; url='https://www.glattt.com/danke-buchung'" />
+<meta http-equiv="refresh" content="0; url='https://www.glattt.com/danke-buchung'" />
 <div class="flex justify-center h-screen">
 	<div
 		class="m-auto block p-6 background border border-gray-200 rounded-lg shadow hover:glattt dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
