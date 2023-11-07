@@ -50,106 +50,107 @@
 				break;
 		}
 	}
+	console.log(opendays);
 </script>
 
-<div class="grid grid-cols-{opendays} gap-1 sm:gap-4 sm:p-5">
-	<div>
-		<h2
-			class="mb-2 text-lg font-semibold text-gray-600 dark:text-white overflow-hidden flex justify-center"
-		>
-			Mo
-		</h2>
-		<h6 class="mb-2 text-m text-gray-600 dark:text-white overflow-hidden flex justify-center">
-			{monDate.getDate()}
-		</h6>
-		<hr class="h-px my-2 bg-gray-200 border-0 dark:bg-gray-700" />
-		<div class="max-w-md space-y-1 text-gray-500 dark:text-gray-400">
-			{#each mon as appointment}
-				<Appointment_time {appointment} />
-			{/each}
+{#if opendays == 7}
+	<div class="grid grid-cols-7 gap-1 sm:gap-4 sm:p-5">
+		<div>
+			<h2
+				class="mb-2 text-lg font-semibold text-gray-600 dark:text-white overflow-hidden flex justify-center"
+			>
+				Mo
+			</h2>
+			<h6 class="mb-2 text-m text-gray-600 dark:text-white overflow-hidden flex justify-center">
+				{monDate.getDate()}
+			</h6>
+			<hr class="h-px my-2 bg-gray-200 border-0 dark:bg-gray-700" />
+			<div class="max-w-md space-y-1 text-gray-500 dark:text-gray-400">
+				{#each mon as appointment}
+					<Appointment_time {appointment} />
+				{/each}
+			</div>
 		</div>
-	</div>
-	<div>
-		<h2
-			class="mb-2 text-lg font-semibold text-gray-600 dark:text-white overflow-hidden flex justify-center"
-		>
-			Di
-		</h2>
-		<h6 class="mb-2 text-m text-gray-600 dark:text-white overflow-hidden flex justify-center">
-			{tueDate.getDate()}
-		</h6>
-		<hr class="h-px my-2 bg-gray-200 border-0 dark:bg-gray-700" />
-		<div class="max-w-md space-y-1 text-gray-500 dark:text-gray-400">
-			{#each tue as appointment}
-				<Appointment_time {appointment} />
-			{/each}
+		<div>
+			<h2
+				class="mb-2 text-lg font-semibold text-gray-600 dark:text-white overflow-hidden flex justify-center"
+			>
+				Di
+			</h2>
+			<h6 class="mb-2 text-m text-gray-600 dark:text-white overflow-hidden flex justify-center">
+				{tueDate.getDate()}
+			</h6>
+			<hr class="h-px my-2 bg-gray-200 border-0 dark:bg-gray-700" />
+			<div class="max-w-md space-y-1 text-gray-500 dark:text-gray-400">
+				{#each tue as appointment}
+					<Appointment_time {appointment} />
+				{/each}
+			</div>
 		</div>
-	</div>
-	<div>
-		<h2
-			class="mb-2 text-lg font-semibold text-gray-600 dark:text-white overflow-hidden flex justify-center"
-		>
-			Mi
-		</h2>
-		<h6 class="mb-2 text-m text-gray-600 dark:text-white overflow-hidden flex justify-center">
-			{wedDate.getDate()}
-		</h6>
-		<hr class="h-px my-2 bg-gray-200 border-0 dark:bg-gray-700" />
-		<div class="max-w-md space-y-1 text-gray-500 dark:text-gray-400">
-			{#each wed as appointment}
-				<Appointment_time {appointment} />
-			{/each}
+		<div>
+			<h2
+				class="mb-2 text-lg font-semibold text-gray-600 dark:text-white overflow-hidden flex justify-center"
+			>
+				Mi
+			</h2>
+			<h6 class="mb-2 text-m text-gray-600 dark:text-white overflow-hidden flex justify-center">
+				{wedDate.getDate()}
+			</h6>
+			<hr class="h-px my-2 bg-gray-200 border-0 dark:bg-gray-700" />
+			<div class="max-w-md space-y-1 text-gray-500 dark:text-gray-400">
+				{#each wed as appointment}
+					<Appointment_time {appointment} />
+				{/each}
+			</div>
 		</div>
-	</div>
-	<div>
-		<h2
-			class="mb-2 text-lg font-semibold text-gray-600 dark:text-white overflow-hidden flex justify-center"
-		>
-			Do
-		</h2>
-		<h6 class="mb-2 text-m text-gray-600 dark:text-white overflow-hidden flex justify-center">
-			{thuDate.getDate()}
-		</h6>
-		<hr class="h-px my-2 bg-gray-200 border-0 dark:bg-gray-700" />
-		<div class="max-w-md space-y-1 text-gray-500 dark:text-gray-400">
-			{#each thu as appointment}
-				<Appointment_time {appointment} />
-			{/each}
+		<div>
+			<h2
+				class="mb-2 text-lg font-semibold text-gray-600 dark:text-white overflow-hidden flex justify-center"
+			>
+				Do
+			</h2>
+			<h6 class="mb-2 text-m text-gray-600 dark:text-white overflow-hidden flex justify-center">
+				{thuDate.getDate()}
+			</h6>
+			<hr class="h-px my-2 bg-gray-200 border-0 dark:bg-gray-700" />
+			<div class="max-w-md space-y-1 text-gray-500 dark:text-gray-400">
+				{#each thu as appointment}
+					<Appointment_time {appointment} />
+				{/each}
+			</div>
 		</div>
-	</div>
-	<div>
-		<h2
-			class="mb-2 text-lg font-semibold text-gray-600 dark:text-white overflow-hidden flex justify-center"
-		>
-			Fr
-		</h2>
-		<h6 class="mb-2 text-m text-gray-600 dark:text-white overflow-hidden flex justify-center">
-			{friDate.getDate()}
-		</h6>
-		<hr class="h-px my-2 bg-gray-200 border-0 dark:bg-gray-700" />
-		<div class="max-w-md space-y-1 text-gray-500 dark:text-gray-400">
-			{#each fri as appointment}
-				<Appointment_time {appointment} />
-			{/each}
+		<div>
+			<h2
+				class="mb-2 text-lg font-semibold text-gray-600 dark:text-white overflow-hidden flex justify-center"
+			>
+				Fr
+			</h2>
+			<h6 class="mb-2 text-m text-gray-600 dark:text-white overflow-hidden flex justify-center">
+				{friDate.getDate()}
+			</h6>
+			<hr class="h-px my-2 bg-gray-200 border-0 dark:bg-gray-700" />
+			<div class="max-w-md space-y-1 text-gray-500 dark:text-gray-400">
+				{#each fri as appointment}
+					<Appointment_time {appointment} />
+				{/each}
+			</div>
 		</div>
-	</div>
-	<div>
-		<h2
-			class="mb-2 text-lg font-semibold text-gray-600 dark:text-white overflow-hidden flex justify-center"
-		>
-			Sa
-		</h2>
-		<h6 class="mb-2 text-m text-gray-600 dark:text-white overflow-hidden flex justify-center">
-			{satDate.getDate()}
-		</h6>
-		<hr class="h-px my-2 bg-gray-200 border-0 dark:bg-gray-700" />
-		<div class="max-w-md space-y-1 text-gray-500 dark:text-gray-400">
-			{#each sat as appointment}
-				<Appointment_time {appointment} />
-			{/each}
+		<div>
+			<h2
+				class="mb-2 text-lg font-semibold text-gray-600 dark:text-white overflow-hidden flex justify-center"
+			>
+				Sa
+			</h2>
+			<h6 class="mb-2 text-m text-gray-600 dark:text-white overflow-hidden flex justify-center">
+				{satDate.getDate()}
+			</h6>
+			<hr class="h-px my-2 bg-gray-200 border-0 dark:bg-gray-700" />
+			<div class="max-w-md space-y-1 text-gray-500 dark:text-gray-400">
+				{#each sat as appointment}
+					<Appointment_time {appointment} />
+				{/each}
+			</div>
 		</div>
-	</div>
-	{#if sun.length > 0}
 		<div>
 			<h2
 				class="mb-2 text-lg font-semibold text-gray-600 dark:text-white overflow-hidden flex justify-center"
@@ -166,5 +167,104 @@
 				{/each}
 			</div>
 		</div>
-	{/if}
-</div>
+	</div>
+{:else}
+	<div class="grid grid-cols-6 gap-1 sm:gap-4 sm:p-5">
+		<div>
+			<h2
+				class="mb-2 text-lg font-semibold text-gray-600 dark:text-white overflow-hidden flex justify-center"
+			>
+				Mo
+			</h2>
+			<h6 class="mb-2 text-m text-gray-600 dark:text-white overflow-hidden flex justify-center">
+				{monDate.getDate()}
+			</h6>
+			<hr class="h-px my-2 bg-gray-200 border-0 dark:bg-gray-700" />
+			<div class="max-w-md space-y-1 text-gray-500 dark:text-gray-400">
+				{#each mon as appointment}
+					<Appointment_time {appointment} />
+				{/each}
+			</div>
+		</div>
+		<div>
+			<h2
+				class="mb-2 text-lg font-semibold text-gray-600 dark:text-white overflow-hidden flex justify-center"
+			>
+				Di
+			</h2>
+			<h6 class="mb-2 text-m text-gray-600 dark:text-white overflow-hidden flex justify-center">
+				{tueDate.getDate()}
+			</h6>
+			<hr class="h-px my-2 bg-gray-200 border-0 dark:bg-gray-700" />
+			<div class="max-w-md space-y-1 text-gray-500 dark:text-gray-400">
+				{#each tue as appointment}
+					<Appointment_time {appointment} />
+				{/each}
+			</div>
+		</div>
+		<div>
+			<h2
+				class="mb-2 text-lg font-semibold text-gray-600 dark:text-white overflow-hidden flex justify-center"
+			>
+				Mi
+			</h2>
+			<h6 class="mb-2 text-m text-gray-600 dark:text-white overflow-hidden flex justify-center">
+				{wedDate.getDate()}
+			</h6>
+			<hr class="h-px my-2 bg-gray-200 border-0 dark:bg-gray-700" />
+			<div class="max-w-md space-y-1 text-gray-500 dark:text-gray-400">
+				{#each wed as appointment}
+					<Appointment_time {appointment} />
+				{/each}
+			</div>
+		</div>
+		<div>
+			<h2
+				class="mb-2 text-lg font-semibold text-gray-600 dark:text-white overflow-hidden flex justify-center"
+			>
+				Do
+			</h2>
+			<h6 class="mb-2 text-m text-gray-600 dark:text-white overflow-hidden flex justify-center">
+				{thuDate.getDate()}
+			</h6>
+			<hr class="h-px my-2 bg-gray-200 border-0 dark:bg-gray-700" />
+			<div class="max-w-md space-y-1 text-gray-500 dark:text-gray-400">
+				{#each thu as appointment}
+					<Appointment_time {appointment} />
+				{/each}
+			</div>
+		</div>
+		<div>
+			<h2
+				class="mb-2 text-lg font-semibold text-gray-600 dark:text-white overflow-hidden flex justify-center"
+			>
+				Fr
+			</h2>
+			<h6 class="mb-2 text-m text-gray-600 dark:text-white overflow-hidden flex justify-center">
+				{friDate.getDate()}
+			</h6>
+			<hr class="h-px my-2 bg-gray-200 border-0 dark:bg-gray-700" />
+			<div class="max-w-md space-y-1 text-gray-500 dark:text-gray-400">
+				{#each fri as appointment}
+					<Appointment_time {appointment} />
+				{/each}
+			</div>
+		</div>
+		<div>
+			<h2
+				class="mb-2 text-lg font-semibold text-gray-600 dark:text-white overflow-hidden flex justify-center"
+			>
+				Sa
+			</h2>
+			<h6 class="mb-2 text-m text-gray-600 dark:text-white overflow-hidden flex justify-center">
+				{satDate.getDate()}
+			</h6>
+			<hr class="h-px my-2 bg-gray-200 border-0 dark:bg-gray-700" />
+			<div class="max-w-md space-y-1 text-gray-500 dark:text-gray-400">
+				{#each sat as appointment}
+					<Appointment_time {appointment} />
+				{/each}
+			</div>
+		</div>
+	</div>
+{/if}
