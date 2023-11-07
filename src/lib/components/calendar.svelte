@@ -52,7 +52,7 @@
 	}
 </script>
 
-<div class="grid grid-cols-7 gap-1 sm:gap-4 sm:p-5">
+<div class="grid grid-cols-{opendays} gap-1 sm:gap-4 sm:p-5">
 	<div>
 		<h2
 			class="mb-2 text-lg font-semibold text-gray-600 dark:text-white overflow-hidden flex justify-center"
