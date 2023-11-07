@@ -43,7 +43,6 @@ export const GET = async ({ url }) => {
 	);
 
 	const { data } = await response.json();
-	console.log(monday, sunday);
 	return json(data);
 };
 

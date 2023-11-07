@@ -34,7 +34,7 @@
 	onMount(() => {
 		const today = new Date();
 		$monday = new Date(today.setDate(today.getDate() - today.getDay() + 1));
-		$sunday = new Date(today.setDate(today.getDate() - today.getDay() + 7));
+		$sunday = new Date(today.setDate(today.getDate() - today.getDay() + 8));
 		$store_info = JSON.parse(PUBLIC_ADDRESSES)[storename] || { name: 'Laden nicht bekannt' };
 		load_free_appointments();
 	});
