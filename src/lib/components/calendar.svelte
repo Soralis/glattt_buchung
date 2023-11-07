@@ -19,12 +19,8 @@
 	const thuDate = new Date(new Date(monDate).setDate(new Date(monDate).getDate() + 3));
 	const friDate = new Date(new Date(monDate).setDate(new Date(monDate).getDate() + 4));
 	const satDate = new Date(new Date(monDate).setDate(new Date(monDate).getDate() + 5));
-	const sunDate = new Date(new Date(monDate).setDate(new Date(monDate).getDate() - 1));
+	const sunDate = new Date(new Date(monDate).setDate(new Date(monDate).getDate() + 6));
 
-	console.log(friDate);
-	console.log(sunDate);
-	console.log('___________________');
-	console.log(appointments.length);
 	for (let i = 0; i < appointments.length; i++) {
 		let appointment_time = new Date(appointments[i].startTime);
 		let weekday = appointment_time.getDay();
@@ -153,20 +149,22 @@
 			{/each}
 		</div>
 	</div>
-	<div>
-		<h2
-			class="mb-2 text-lg font-semibold text-gray-600 dark:text-white overflow-hidden flex justify-center"
-		>
-			So
-		</h2>
-		<h6 class="mb-2 text-m text-gray-600 dark:text-white overflow-hidden flex justify-center">
-			{sunDate.getDate()}
-		</h6>
-		<hr class="h-px my-2 bg-gray-200 border-0 dark:bg-gray-700" />
-		<div class="max-w-md space-y-1 text-gray-500 dark:text-gray-400">
-			{#each sun as appointment}
-				<Appointment_time {appointment} />
-			{/each}
+	{#if sun.length > 0}
+		<div>
+			<h2
+				class="mb-2 text-lg font-semibold text-gray-600 dark:text-white overflow-hidden flex justify-center"
+			>
+				So
+			</h2>
+			<h6 class="mb-2 text-m text-gray-600 dark:text-white overflow-hidden flex justify-center">
+				{sunDate.getDate()}
+			</h6>
+			<hr class="h-px my-2 bg-gray-200 border-0 dark:bg-gray-700" />
+			<div class="max-w-md space-y-1 text-gray-500 dark:text-gray-400">
+				{#each sun as appointment}
+					<Appointment_time {appointment} />
+				{/each}
+			</div>
 		</div>
-	</div>
+	{/if}
 </div>
