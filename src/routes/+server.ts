@@ -37,7 +37,8 @@ export const GET = async ({ url }) => {
 					}
 				],
 				endTime: sunday,
-				startTime: monday
+				startTime: monday,
+				isOnlineAvailability: true
 			})
 		}
 	);
