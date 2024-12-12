@@ -31,7 +31,7 @@
 	const storename: string = $page.url.searchParams.get('storename');
 
 	// if the storename is "bielefeld" or 'osnabrueck', we do not want to show the abfrage_modal
-	if (storename in ['bielefeld', 'osnabrueck']) {
+	if (['bielefeld', 'osnabrueck'].includes(storename)) {
 		abfrage_modal = false;
 	}
 	// ends here
