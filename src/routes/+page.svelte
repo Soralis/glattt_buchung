@@ -30,8 +30,8 @@
 	let error_loading_appointments: boolean = false;
 	const storename: string = $page.url.searchParams.get('storename');
 
-	// if the storename is "bielefeld", we do not want to show the abfrage_modal
-	if (storename == 'bielefeld') {
+	// if the storename is "bielefeld" or 'osnabrueck', we do not want to show the abfrage_modal
+	if (storename in ['bielefeld', 'osnabrueck']) {
 		abfrage_modal = false;
 	}
 	// ends here
